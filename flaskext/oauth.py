@@ -233,6 +233,8 @@ class OAuthRemoteApp(object):
                 data, content_type = encode_request_data(data, format)
             if content_type is not None:
                 headers['Content-Type'] = content_type
+        if data is None:
+            data = ''
         return OAuthResponse(*client.request(url, method=method,
                                              body=data, headers=headers))
 
